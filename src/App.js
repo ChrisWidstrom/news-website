@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Router from './Router';
+import Router from './router/Router';
 
 const App = () => {
     const [articles, setArticles] = useState([]);
