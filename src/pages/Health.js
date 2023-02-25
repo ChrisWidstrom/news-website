@@ -1,5 +1,12 @@
 import React from "react";
+import styled from 'styled-components';
 
 export default function Health() {
-    return <h1>Health</h1>;
+    return (
+        <STitle>Health</STitle>
+    )
 }
+
+const STitle = styled.h1`
+    color: red;
+`;
