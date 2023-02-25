@@ -1,11 +1,33 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import styled from "styled-components";
 
-export default function Home() {
+import { Header } from "../components/Header";
+import { Article } from "../components/Article";
+
+export const Home = ({articles}) => {
   return (
     <>
+      <Header />
       <h1>Home</h1>
-      <Outlet />
+      <SList>
+        {articles.map(article => (
+          <li>
+            <Article 
+              source={article.source.name}
+              description={article.description}
+              title={article.title}
+              content={article.content}
+            />
+          </li>
+        ))}
+      </SList>
+
     </>
   );
 }
+
+const SList = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+`

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Entertainment() {
+export const Entertainment = () => {
     return <h1>Entertainment</h1>;
 }
 
