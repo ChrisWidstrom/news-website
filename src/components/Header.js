@@ -1,33 +1,56 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css }from "styled-components";
 import Button from "@mui/material/Button";
+import IconButton from "@mui/material/Button";
+import MenuIcon from '@mui/icons-material/Menu';
 import logo from "../img/omni_logo.png";
 
 export const Header = () => {
   return (
     <SContainer>
       <SLogoAndMenu>
-        <span>Menu</span>
+        <SMenuButton><MenuIcon/></SMenuButton>
         <SLogo src={logo} />
       </SLogoAndMenu>
 
       <SButtons>
-        <Button variant="outlined" size="small">
-          Become Member
-        </Button>
-        <Button variant="contained" size="small" disableElevation>
+        <SButton outline>
+          Join
+        </SButton>
+        <SButton>
           Log in
-        </Button>
+        </SButton>
       </SButtons>
 
       <SLinks>
-        <span>Top News</span>
-        <span>Latest News</span>
-        <span>Personalized News Feed</span>
+        <SLinkButton>Top News</SLinkButton>
+        <SLinkButton>Latest News</SLinkButton>
+        <SLinkButton>Personalized</SLinkButton>
       </SLinks>
     </SContainer>
   );
 };
+
+const SButton = styled.button`
+    border-radius: 30px;
+    width: 110px;
+    margin: 8px 7px 8px 0;
+    border: none;
+    background: #678D81;
+    color: white;
+
+    ${props => props.outline && css`
+        background: white;
+        border: 1px solid #678D81;
+        color: #678D81;
+    `}
+`
+
+const SMenuButton = styled.button`
+    border: none;
+    background: white;
+    padding: 0 8px;
+`
 
 const SContainer = styled.div`
   display: grid;
@@ -51,6 +74,10 @@ const SLogoAndMenu = styled.div`
   border-bottom: 0.7px solid lightgray;
 `;
 
+const SLinkButton = styled.div`
+
+`
+
 const SButtons = styled.div`
   grid-area: buttons;
   display: flex;
@@ -63,7 +90,10 @@ const SButtons = styled.div`
 const SLinks = styled.div`
   grid-area: links;
   display: flex;
+  justify-content: space-around;
   align-items: center;
+  font-size: 0.7rem;
+  font-weight: 500;
 
   background: #FAFAFA;
   height: 30px;

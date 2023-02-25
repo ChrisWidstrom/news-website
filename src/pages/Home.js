@@ -11,7 +11,7 @@ export const Home = ({articles}) => {
       <h1>Home</h1>
       <SList>
         {articles.map(article => (
-          <li>
+          <li key={article.url}>
             <Article 
               source={article.source.name}
               description={article.description}
